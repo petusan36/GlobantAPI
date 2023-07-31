@@ -1,0 +1,6 @@
+# sudo apt install sqlite3 -y
+fastapi
+Jinja2
+python-multipart
+tabulate
+uvicorn
