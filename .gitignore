@@ -137,6 +137,7 @@ venv.bak/
 
 # mkdocs documentation
 /site
+/globantenv
 
 # mypy
 .mypy_cache/
