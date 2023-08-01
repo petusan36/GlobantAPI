@@ -76,7 +76,7 @@ For access you can open it in ```localhost/docs``` and choose the first option `
 ***get*** /uploadfile/ Employees HIred 2021
 ***get*** /uploadfile/ Employees Hired Over Mean
 
-<img src="archivos/GlobantAPI_API.jpg" alt="APIS" style="height: 30%; width:30%;"/>
+<img src="archivos/GlobantAPI_API.png" alt="APIS" style="height: 30%; width:30%;"/>
 
 After load files, you can execute ```get``` API's to view reports in swagger form in *server response* section or open urls: 
 
