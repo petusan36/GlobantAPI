@@ -46,7 +46,7 @@ You can check if container
 To check if container is up you can execute the next command ``docker ps`` and watch if ``apig`` is running
 >To stop the running  container you enter into this one with ``docker exec -it apig bash`` and run kill command to force it to stop ``kill 1`` sending a signal with ``1`` value.
 
-to delete definitly the container and image created you cand execute next commands
+to delete definitly the container and image created you can execute next commands
 ```docker
 docker remove apig
 docker image remove globantapi:latest
