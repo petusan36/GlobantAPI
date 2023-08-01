@@ -35,7 +35,7 @@ The database globant .db is created in ```sqlite3``` and has three tables:
 
 ***E/R  globant.db***
 
-<img src="archivos/GlobantAPI_DB.jpg" alt="DB E/R globant.db" style="height: 30%; width:30%;"/>
+<img src="archivos/GlobantAPI_DB.jpg" alt="DB E/R globant.db" style="height: 50%; width:50%;"/>
 
 Those tables ares used for create query reports and showed in API reports
 
