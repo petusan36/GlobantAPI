@@ -1,7 +1,10 @@
 
-# GlobantAPI
 
+
+# GlobantAPI
 GlobantAPI is a Python app made  on FastApi library to load files to migrate from a database and generate two reports needed for users.
+
+File structure
 ```
 app
 │ __init__.py  
@@ -9,7 +12,6 @@ app
 │ loadfiles.py
 │ main.py
 │ reports.py
-└─folder1
 archivos
 │ CREATE_globant.sql
 │ deparments.csv
@@ -24,8 +26,23 @@ requirements.txt
 ***app*** folder: contain all files with application logic
 ***archivos*** folder: Have all files to complement or used to create tables or load data into database.
 
-## Installation
+## Database E/R
+The database globant .db is created in ```sqlite3``` and has three tables:
 
+***departments:*** departments.csv is used for data load
+***jobs:*** jobs.csv is used for data load
+***hired_employees:*** hired_employees.csv is used for data load
+
+***E/R  globant.db***
+
+<img src="archivos/GlobantAPI_DB.jpg" alt="DB E/R globant.db" style="height: 30%; width:30%;"/>
+
+Those tables ares used for create query reports and showed in API reports
+
+## Architecture
+<img src="archivos/GlobantAPI_ARQ.jpg" alt="Architecture" style="height:75%; width:75%;"/>
+
+## Installation
 For this app you must use [docker](https://docs.docker.com/get-docker/) to install GlobantAPI.
 
 First you must be in main directory and execute ***Dockerfile*** that it'll build an image with name  with next command.
@@ -51,12 +68,24 @@ to delete definitly the container and image created you can execute next command
 docker remove apig
 docker image remove globantapi:latest
 ```
-
-
-
 ## Usage
+For access you can open it in ```localhost/docs``` and choose the first option ```post``` to load the files needed for API function. There is no order to load but a suggestion is load in this order ```departments.csv, jobs.csv, hired_employees.csv``` those can be found in ```archive``` folder.
 
-Dockerfile
+### API list
+***post*** /uploadfile/ Create upload files
+***get*** /uploadfile/ Employees HIred 2021
+***get*** /uploadfile/ Employees Hired Over Mean
+
+<img src="archivos/GlobantAPI_API.jpg" alt="APIS" style="height: 30%; width:30%;"/>
+
+After load files, you can execute ```get``` API's to view reports in swagger form in *server response* section or open urls: 
+
+http://localhost/employees_hired_2021
+http://localhost/employees_hired_over_mean
+
+### APP Files
+They can be found in ```app``` folder
+##### Dockerfile
 ```dockerfile
 # Base image.
 FROM python:3.9 
@@ -101,7 +130,7 @@ RUN pip install --no-cache-dir --upgrade -r ./requirements.txt
 # Run command to up uvicorn server on localhost by  port 80.
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
 ```
-main.py
+##### main.py
 ```python
 from fastapi import FastAPI, File, UploadFile, Request
 from globant import *
